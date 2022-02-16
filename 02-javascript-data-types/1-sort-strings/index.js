@@ -6,13 +6,8 @@
  */
 export function sortStrings(arr, param = "asc") {
     if (param === "asc") {
-        return sortByOrder(arr);
+        return arr.slice().sort((a, b) => a.localeCompare(b, 'ru', {caseFirst : "upper"}));
     } else if (param === "desc") {
-        return sortByOrder(arr).reverse();
-    } else throw new Error(`Unknown type of sortion! Value: ${param} Type: ${typeof param}`)
-}
-
-function sortByOrder(arr) {
-    let sortedArr = arr.slice().sort((a, b) => a.localeCompare(b, 'ru', {caseFirst : "upper"}));
-    return sortedArr;
+        return arr.slice().sort((a, b) => b.localeCompare(a, 'ru', {caseFirst : "upper"}));
+    } else throw new Error(`Unknown type of sortion! Value: ${param} Type: ${typeof param}`);
 }
