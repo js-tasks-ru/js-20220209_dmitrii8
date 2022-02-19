@@ -13,14 +13,17 @@ export function trimSymbols(string, size) {
     const symbol = string[0];
     let counter = 0;
     let substr;
+    
     for (let letter of string) {
         if (letter === symbol) ++counter;
         else break;
     }
+
     if (counter >= size) {
         substr = string.slice(0, size);
     } else {
         substr = string.slice(0, counter);
     }
+
     return substr + trimSymbols(string.slice(counter, string.length), size);
 }
