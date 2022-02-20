@@ -5,8 +5,8 @@
  * @returns {string} - the new string without extra symbols according passed size
  */
 export function trimSymbols(string, size) {
-    if (typeof string === 'undefined') return undefined;
-    if (typeof size === 'undefined') return string;
+    if (string === undefined) return;
+    if (size === undefined) return string;
     if (string.length === 0 || size === 0) return "";
     if (string.length <= size) return string;
 
@@ -14,7 +14,7 @@ export function trimSymbols(string, size) {
     let counter = 0;
     let substr;
     
-    for (let letter of string) {
+    for (const letter of string) {
         if (letter === symbol) ++counter;
         else break;
     }

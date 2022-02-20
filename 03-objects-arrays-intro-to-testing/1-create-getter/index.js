@@ -4,11 +4,13 @@
  * @returns {function} - function-getter which allow get value from object by set path
  */
 export function createGetter(path) {
-    return (obj) => {
-        if (Object.keys(obj).length === 0) return undefined;
+    let subpaths = path.split(".");
 
-        for (let getter of path.split(".")) {
-            obj = obj[getter];
+    return (obj) => {
+        if (Object.keys(obj).length === 0) return;
+
+        for (let subpath of subpaths) {
+            obj = obj[subpath];
         }
         
         return obj;
