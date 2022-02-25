@@ -106,6 +106,3 @@ export default class ColumnChart {
         return result;
     }
 }
-
-
-
